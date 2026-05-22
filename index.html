@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bhavya & Tushar Wedding Invitation</title>
+
+    <!-- GOOGLE FONTS -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        body{
+
+            font-family:'Poppins',sans-serif;
+
+            background:
+            linear-gradient(
+            rgba(239,226,255,0.82),
+            rgba(239,226,255,0.82)),
+
+            url('image/floral-bg.png');
+
+            background-size:cover;
+            background-position:center;
+            background-attachment:fixed;
+
+            overflow-x:hidden;
+
+            color:#333;
+
+        }
+
+        /* ================= WELCOME SCREEN ================= */
+
+        .welcome-screen{
+
+            position:fixed;
+            inset:0;
+
+            background:
+            linear-gradient(
+            rgba(255,255,255,0.10),
+            rgba(255,255,255,0.10)),
+
+            url('image/welcome-bg.png');
+
+            background-size:cover;
+            background-position:center;
+            background-repeat:no-repeat;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+            z-index:9999;
+
+            transition:1s ease;
+
+        }
+
+        .welcome-card{
+
+            width:340px;
+
+            background:rgba(255,255,255,0.82);
+
+            backdrop-filter:blur(10px);
+
+            padding:35px 25px;
+
+            border-radius:25px;
+
+            text-align:center;
+
+            box-shadow:0 15px 40px rgba(0,0,0,0.15);
+
+            animation:fadeUp 1.2s ease;
+
+        }
+
+        .welcome-title{
+
+            font-family:'Great Vibes',cursive;
+            font-size:58px;
+            color:#6b2d5c;
+            margin-bottom:15px;
+
+        }
+
+        .welcome-text{
+
+            color:#666;
+            line-height:1.8;
+            margin-bottom:20px;
+
+        }
+
+        .couple-name{
+
+            font-size:24px;
+            font-weight:600;
+            margin-bottom:25px;
+
+        }
+
+        .view-btn{
+
+            border:none;
+            background:linear-gradient(135deg,#8d72ff,#6b59e6);
+
+            color:white;
+
+            padding:14px 35px;
+
+            border-radius:40px;
+
+            font-size:16px;
+            font-weight:600;
+
+            cursor:pointer;
+
+            transition:0.3s;
+
+        }
+
+        .view-btn:hover{
+
+            transform:scale(1.05);
+
+        }
+
+        /* ================= HERO ================= */
+
+        .hero{
+
+            min-height:100vh;
+
+            background:
+            linear-gradient(rgba(220,200,255,0.55),
+            rgba(220,200,255,0.55)),
+
+            url('image/bg.png');
+
+            background-size:cover;
+            background-position:center;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+            text-align:center;
+
+            position:relative;
+
+            opacity:0;
+            visibility:hidden;
+
+            transition:1s ease;
+
+        }
+
+        .hero.active{
+
+            opacity:1;
+            visibility:visible;
+
+        }
+
+        .hero-content{
+
+            z-index:2;
+
+            animation:zoomFade 1.5s ease;
+
+        }
+
+        .hero-small{
+
+            letter-spacing:8px;
+            color:#5b4568;
+            margin-bottom:20px;
+
+        }
+
+        .hero-title{
+
+            font-family:'Great Vibes',cursive;
+            font-size:100px;
+            line-height:1.1;
+            color:#6b2d5c;
+
+        }
+
+        .hero-flower{
+
+            margin-top:25px;
+            font-size:35px;
+            color:#7b5fb0;
+
+        }
+
+        /* ================= MUSIC BUTTON ================= */
+
+        .music-btn{
+
+            position:fixed;
+
+            right:25px;
+            bottom:25px;
+
+            width:60px;
+            height:60px;
+
+            border-radius:50%;
+
+            background:#e2b861;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+            color:white;
+            font-size:24px;
+
+            z-index:999;
+
+            animation:pulse 2s infinite;
+
+            cursor:pointer;
+
+        }
+
+        /* ================= COMMON ================= */
+
+        section{
+
+            padding:100px 20px;
+
+            text-align:center;
+
+            backdrop-filter:blur(2px);
+
+        }
+
+        .title{
+
+            font-size:54px;
+            color:#6b2d5c;
+            margin-bottom:30px;
+            font-family:serif;
+
+        }
+
+        .subtitle{
+
+            font-size:28px;
+            color:#7d5870;
+            margin-bottom:20px;
+
+        }
+
+        .desc{
+
+            max-width:750px;
+            margin:auto;
+
+            line-height:1.9;
+            color:#5e5e5e;
+
+            font-size:18px;
+
+        }
+
+        /* ================= TYPING ================= */
+
+        .typing-text{
+
+            max-width:750px;
+
+            min-height:70px;
+
+            margin:auto;
+
+            line-height:1.9;
+
+            color:#5e5e5e;
+
+            font-size:18px;
+
+            border-right:3px solid #7a2d67;
+
+            width:fit-content;
+
+            padding-right:5px;
+
+            animation:blink 0.8s infinite;
+
+        }
+
+        @keyframes blink{
+
+            50%{
+
+                border-color:transparent;
+
+            }
+
+        }
+
+        /* ================= COUNTDOWN ================= */
+
+        .date{
+
+            margin-top:40px;
+
+            font-size:42px;
+            color:#6d4566;
+
+            line-height:1.5;
+
+            font-family:serif;
+
+        }
+
+        .countdown{
+
+            margin-top:60px;
+
+            display:flex;
+            justify-content:center;
+            gap:25px;
+
+            flex-wrap:wrap;
+
+        }
+
+        .box{
+
+            width:130px;
+            height:130px;
+
+            background:white;
+
+            border-radius:20px;
+
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+
+            box-shadow:0 10px 30px rgba(0,0,0,0.08);
+
+        }
+
+        .box h1{
+
+            font-size:42px;
+            color:#6b2d5c;
+
+        }
+
+        .box p{
+
+            margin-top:10px;
+            color:#666;
+
+        }
+
+        /* ================= EVENTS ================= */
+
+        .event-title{
+
+            margin-bottom:60px;
+
+        }
+
+        .event-card{
+
+            border:2px solid rgba(255,255,255,0.25);
+
+            position:relative;
+
+            max-width:700px;
+
+            margin:30px auto;
+
+            border-radius:30px;
+
+            overflow:hidden;
+
+            box-shadow:0 10px 40px rgba(0,0,0,0.15);
+
+        }
+
+        .event-card img{
+
+            width:100%;
+            height:450px;
+
+            object-fit:cover;
+            display:block;
+
+        }
+
+        .overlay{
+
+            position:absolute;
+            inset:0;
+
+            background:rgba(0,0,0,0.58);
+
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+
+            color:white;
+            text-align:center;
+
+            padding:20px;
+
+        }
+
+        .overlay h1{
+
+            font-size:52px;
+            letter-spacing:5px;
+            margin-bottom:15px;
+
+        }
+
+        .overlay p{
+
+            font-size:22px;
+            margin-bottom:15px;
+
+        }
+
+        .overlay span{
+
+            margin-bottom:15px;
+            font-size:20px;
+
+        }
+
+        .overlay h3{
+
+            font-size:32px;
+
+        }
+
+        /* ================= BLESSINGS ================= */
+
+        .blessing-box{
+
+            max-width:650px;
+            margin:auto;
+
+            background:white;
+
+            padding:50px 30px;
+
+            border-radius:20px;
+
+            box-shadow:0 10px 40px rgba(0,0,0,0.08);
+
+        }
+
+        .blessing-box input,
+        .blessing-box textarea{
+
+            width:100%;
+
+            padding:18px;
+
+            margin-bottom:20px;
+
+            border-radius:12px;
+
+            border:1px solid #ccc;
+
+            font-size:16px;
+
+            outline:none;
+
+        }
+
+        .blessing-box textarea{
+
+            height:150px;
+            resize:none;
+
+        }
+
+        .blessing-box button{
+
+            width:100%;
+
+            padding:18px;
+
+            border:none;
+
+            background:#8a4c69;
+
+            color:white;
+
+            border-radius:12px;
+
+            font-size:18px;
+
+            cursor:pointer;
+
+        }
+
+        .wish-note{
+
+            margin-top:25px;
+            color:#666;
+            font-size:14px;
+            line-height:1.7;
+
+        }
+
+        /* ================= VENUE ================= */
+
+        iframe{
+
+            width:100%;
+            max-width:750px;
+
+            height:500px;
+
+            border:none;
+
+            border-radius:20px;
+
+            margin-top:40px;
+
+        }
+
+        .map-btn{
+
+            display:inline-block;
+
+            margin-top:35px;
+
+            background:#8a4c69;
+            color:white;
+
+            text-decoration:none;
+
+            padding:16px 40px;
+
+            border-radius:40px;
+
+            font-size:18px;
+
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer{
+
+            padding:50px 20px;
+            text-align:center;
+
+            color:#6d5d7c;
+
+        }
+
+        /* ================= ANIMATION ================= */
+
+        @keyframes fadeUp{
+
+            from{
+
+                opacity:0;
+                transform:translateY(40px);
+
+            }
+
+            to{
+
+                opacity:1;
+                transform:translateY(0);
+
+            }
+
+        }
+
+        @keyframes zoomFade{
+
+            from{
+
+                opacity:0;
+                transform:scale(0.8);
+
+            }
+
+            to{
+
+                opacity:1;
+                transform:scale(1);
+
+            }
+
+        }
+
+        @keyframes pulse{
+
+            0%,100%{
+
+                transform:scale(1);
+
+            }
+
+            50%{
+
+                transform:scale(1.08);
+
+            }
+
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media(max-width:768px){
+
+            .hero-title{
+
+                font-size:72px;
+
+            }
+
+            .title{
+
+                font-size:42px;
+
+            }
+
+            .date{
+
+                font-size:34px;
+
+            }
+
+            .overlay h1{
+
+                font-size:36px;
+
+            }
+
+            .overlay p{
+
+                font-size:18px;
+
+            }
+
+            .overlay span{
+
+                font-size:16px;
+
+            }
+
+            .overlay h3{
+
+                font-size:26px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ================= WELCOME ================= -->
+
+    <div class="welcome-screen" id="welcome">
+
+        <div class="welcome-card">
+
+            <h1 class="welcome-title">
+                Welcome
+            </h1>
+
+            <p class="welcome-text">
+                Tap the button below to experience the wedding invitation of
+            </p>
+
+            <div class="couple-name">
+                Bhavya & Tushar
+            </div>
+
+            <button class="view-btn" id="viewBtn">
+                View Invitation
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero" id="hero">
+
+        <div class="hero-content">
+
+            <p class="hero-small">
+                THE WEDDING OF
+            </p>
+
+            <h1 class="hero-title">
+                Bhavya & <br> Tushar
+            </h1>
+
+            <div class="hero-flower">
+                ✿ ❀ ✿
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= MUSIC ================= -->
+
+    <div class="music-btn" id="musicBtn">
+        ♫
+    </div>
+
+    <!-- ================= AUDIO ================= -->
+
+    <audio id="weddingSong" loop>
+
+        <source src="music/song.mp3" type="audio/mp3">
+
+    </audio>
+
+    <!-- ================= WEDDING DAY ================= -->
+
+    <section>
+
+        <h2 class="title">
+            The Wedding Day
+        </h2>
+
+        <p class="desc typing-text" id="typingText"></p>
+
+        <h3 class="date">
+            Saturday, 04 July, 2026
+        </h3>
+
+        <div class="countdown">
+
+            <div class="box">
+                <h1 id="days">00</h1>
+                <p>Days</p>
+            </div>
+
+            <div class="box">
+                <h1 id="hours">00</h1>
+                <p>Hours</p>
+            </div>
+
+            <div class="box">
+                <h1 id="minutes">00</h1>
+                <p>Minutes</p>
+            </div>
+
+            <div class="box">
+                <h1 id="seconds">00</h1>
+                <p>Seconds</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= EVENTS ================= -->
+
+    <section>
+
+        <h2 class="title event-title">
+            Wedding Events
+        </h2>
+
+        <!-- HALDI -->
+
+        <div class="event-card">
+
+            <img src="image/haldi.png">
+
+            <div class="overlay">
+
+                <h1>HALDI CEREMONY</h1>
+
+                <p>
+                    Getting ready to haldi ceremony
+                </p>
+
+                <span>
+                    Friday, July 03, 2026
+                </span>
+
+                <h3>
+                    10:00 AM
+                </h3>
+
+            </div>
+
+        </div>
+
+        <!-- MEHNDI -->
+
+        <div class="event-card">
+
+            <img src="image/mahndi.png">
+
+            <div class="overlay">
+
+                <h1>MEHNDI CEREMONY</h1>
+
+                <p>
+                    Getting ready to Mehndi Ceremony
+                </p>
+
+                <span>
+                    Friday, July 03, 2026
+                </span>
+
+                <h3>
+                    05:00 PM
+                </h3>
+
+            </div>
+
+        </div>
+
+        <!-- THE WEDDING -->
+
+        <div class="event-card">
+
+            <img src="image/wedding.png">
+
+            <div class="overlay">
+
+                <h1>THE WEDDING</h1>
+
+                <p>
+                    The start of our forever
+                </p>
+
+                <span>
+                    Saturday, July 04, 2026
+                </span>
+
+                <h3>
+                    06:00 PM
+                </h3>
+
+            </div>
+
+        </div>
+
+        <!-- LUNCH -->
+
+        <div class="event-card">
+
+            <img src="image/lunch.png">
+
+            <div class="overlay">
+
+                <h1>LUNCH</h1>
+
+                <p>
+                    Flavors of love await
+                </p>
+
+                <span>
+                    Saturday, July 04, 2026
+                </span>
+
+                <h3>
+                    08:00 PM
+                </h3>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= BLESSINGS ================= -->
+
+    <section>
+
+        <div class="blessing-box">
+
+            <h2 class="title">
+                Send us your Blessings
+            </h2>
+
+            <input type="text" placeholder="Your Name">
+
+            <input type="text" placeholder="Your Whatsapp No.">
+
+            <textarea placeholder="Your Wishes (Emoji supported)"></textarea>
+
+            <button onclick="sendWhatsAppWish()">
+                Send your wishes
+            </button>
+
+            <p class="wish-note">
+                You will receive automated wish confirmation via WhatsApp.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ================= VENUE ================= -->
+
+    <section>
+
+        <h2 class="title">
+            Our Wedding Venue
+        </h2>
+
+        <h2 class="subtitle">
+            Authentic Lodge, Bulandshahr
+        </h2>
+
+        <p class="desc">
+            Wedding Venue Location
+        </p>
+
+        <iframe
+        src="https://maps.google.com/maps?q=28.411751,77.849399&t=&z=15&ie=UTF8&iwloc=&output=embed">
+        </iframe>
+
+        <br>
+
+        <a href="https://maps.app.goo.gl/zsLqS6dHbDeD1vCt9"
+        target="_blank"
+        class="map-btn">
+
+            Get Directions
+
+        </a>
+
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        Made with ❤ for Bhavya & Tushar
+
+    </footer>
+
+    <!-- ================= SCRIPT ================= -->
+
+    <script>
+
+        // OPEN INVITATION
+
+        const viewBtn = document.getElementById("viewBtn");
+        const welcome = document.getElementById("welcome");
+        const hero = document.getElementById("hero");
+        const song = document.getElementById("weddingSong");
+
+        viewBtn.addEventListener("click",()=>{
+
+            welcome.style.opacity = "0";
+
+            // PLAY SONG
+            song.play();
+
+            setTimeout(()=>{
+
+                welcome.style.display = "none";
+
+                hero.classList.add("active");
+
+                document.body.style.overflowY = "auto";
+
+                // START TYPING
+                typeText();
+
+            },900);
+
+        });
+
+        // ================= TYPING EFFECT =================
+
+        const text =
+        "The day when Bhavya & Tushar will say I DO and begin their new life as a happily married couple";
+
+        const typingText =
+        document.getElementById("typingText");
+
+        let index = 0;
+
+        function typeText(){
+
+            if(index < text.length){
+
+                typingText.innerHTML += text.charAt(index);
+
+                index++;
+
+                setTimeout(typeText,40);
+
+            }
+
+        }
+
+        // COUNTDOWN
+
+        const weddingDate = new Date("July 04, 2026 10:00:00").getTime();
+
+        const countdown = setInterval(()=>{
+
+            const now = new Date().getTime();
+
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000*60*60*24));
+
+            const hours = Math.floor(
+                (distance % (1000*60*60*24))
+                / (1000*60*60)
+            );
+
+            const minutes = Math.floor(
+                (distance % (1000*60*60))
+                / (1000*60)
+            );
+
+            const seconds = Math.floor(
+                (distance % (1000*60))
+                / 1000
+            );
+
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+
+        },1000);
+
+        // ================= WHATSAPP BLESSINGS =================
+
+        function sendWhatsAppWish(){
+
+            let name = document.querySelector('input[placeholder="Your Name"]').value;
+
+            let phone = document.querySelector('input[placeholder="Your Whatsapp No."]').value;
+
+            let wish = document.querySelector('textarea').value;
+
+            let brideNumber = "917078731920";
+
+            let message =
+`💖 Wedding Blessings 💖
+
+Name: ${name}
+
+Whatsapp: ${phone}
+
+Blessing:
+${wish}
+
+Sent from Wedding Invitation Website`;
+
+            let whatsappURL =
+`https://wa.me/${brideNumber}?text=${encodeURIComponent(message)}`;
+
+            window.open(whatsappURL, '_blank');
+
+        }
+
+        // ================= MUSIC CONTROL =================
+
+        const musicBtn = document.getElementById("musicBtn");
+
+        musicBtn.addEventListener("click",()=>{
+
+            if(song.paused){
+
+                song.play();
+
+                musicBtn.innerHTML = "♫";
+
+            }else{
+
+                song.pause();
+
+                musicBtn.innerHTML = "🔇";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
